@@ -6,6 +6,7 @@ module.exports = {
                 'base-bg': '#121212',
                 'base-fg': '#1E1E1E',
                 primary: '#651FFF',
+                'primary-dark': '#262035',
             },
             spacing: {
                 22: '5.5rem',
