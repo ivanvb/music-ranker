@@ -1,6 +1,7 @@
 import React, { useState, useRef } from 'react';
 import { useDebounce, useClickAway } from 'react-use';
 import classnames from 'classnames';
+import * as Deezer from '../lib/deezer';
 
 function generateAlbumImage(id, size) {
     return `https://cdns-images.dzcdn.net/images/cover/${id}/${size}x${size}-000000-80-0-0.jpg`;
@@ -15,10 +16,8 @@ const SearchBar = ({ className = '' }) => {
     const [,] = useDebounce(
         async () => {
             if (search) {
-                window.DZ.api(`search?q=${search}`, (res) => {
-                    setResults(res.data);
-                    setShowResults(true);
-                });
+                const trackLists = await Deezer.search(search);
+                setResults(trackLists);
             }
         },
         1000,
