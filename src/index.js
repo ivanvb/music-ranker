@@ -1,13 +1,14 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import App from './App';
-import './css/tailwind.build.css'
+import { TracksProvider } from './context/TracksContext';
+import './css/tailwind.build.css';
 
 ReactDOM.render(
-  <React.StrictMode>
-    <App />
-  </React.StrictMode>,
-  document.getElementById('root')
+    <React.StrictMode>
+        <TracksProvider>
+            <App />
+        </TracksProvider>
+    </React.StrictMode>,
+    document.getElementById('root')
 );
-
-

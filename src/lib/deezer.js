@@ -13,3 +13,7 @@ export function searchAlbum(id) {
         });
     });
 }
+
+export function generateAlbumImage(id, size) {
+    return `https://cdns-images.dzcdn.net/images/cover/${id}/${size}x${size}-000000-80-0-0.jpg`;
+}
