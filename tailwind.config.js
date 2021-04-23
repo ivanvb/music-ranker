@@ -8,6 +8,7 @@ module.exports = {
                 primary: '#651FFF',
             },
             spacing: {
+                22: '5.5rem',
                 144: '36rem',
             },
         },
