@@ -30,9 +30,13 @@ const SearchBar = ({ className = '' }) => {
     });
 
     const inputClassnames = classnames(
-        'w-full md:w-144 bg-base-fg text-gray-100 rounded-2xl py-1 md:py-2 px-2 md:px-3 tracking-wider',
+        'w-full md:w-144 bg-base-fg text-gray-100 rounded-2xl py-1 md:py-2 px-4 md:px-4 tracking-wider',
         results.length && showResults ? 'rounded-b-none' : '',
         className
+    );
+
+    const scrollbarClassnames = classnames(
+        'scrollbar-thin scrollbar-thumb-primary scrollbar-track-purple-300 scrollbar-thumb-rounded-full scrollbar-track-rounded-full'
     );
 
     return (
@@ -47,7 +51,9 @@ const SearchBar = ({ className = '' }) => {
                 onChange={(e) => setSearch(e.target.value)}
             />
             {results.length > 0 && showResults && (
-                <div className="h-96 bg-base-fg rounded-b-xl border-t border-black overflow-y-auto overflow-x-hidden divide-y-2 divide-black w-full">
+                <div
+                    className={`h-96 bg-base-fg rounded-b-xl border-t border-black overflow-y-auto overflow-x-hidden divide-y-2 divide-black w-full ${scrollbarClassnames}`}
+                >
                     {results.map((result, i) => {
                         const optionClassname = classnames(
                             'w-full relative overflow-hidden flex items-end overlfow-hidden',

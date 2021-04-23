@@ -23,6 +23,8 @@ module.exports = {
             center: true,
         },
     },
-    variants: {},
-    plugins: [],
+    variants: {
+        scrollbar: ['rounded'],
+    },
+    plugins: [require('tailwind-scrollbar')],
 };
