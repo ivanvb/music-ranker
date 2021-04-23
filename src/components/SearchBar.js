@@ -1,5 +1,5 @@
-import React, { useState } from 'react';
-import { useDebounce } from 'react-use';
+import React, { useState, useRef } from 'react';
+import { useDebounce, useClickAway } from 'react-use';
 import classnames from 'classnames';
 
 function generateAlbumImage(id, size) {
@@ -9,13 +9,15 @@ function generateAlbumImage(id, size) {
 const SearchBar = ({ className = '' }) => {
     const [search, setSearch] = useState('');
     const [results, setResults] = useState([]);
+    const [showResults, setShowResults] = useState(false);
+    const searchAreaRef = useRef(null);
 
     const [,] = useDebounce(
         async () => {
             if (search) {
                 window.DZ.api(`search?q=${search}`, (res) => {
                     setResults(res.data);
-                    console.log(res.data);
+                    setShowResults(true);
                 });
             }
         },
@@ -23,21 +25,29 @@ const SearchBar = ({ className = '' }) => {
         [search]
     );
 
+    useClickAway(searchAreaRef, () => {
+        setShowResults(false);
+    });
+
     const inputClassnames = classnames(
         'w-full md:w-144 bg-base-fg text-gray-100 rounded-2xl py-1 md:py-2 px-2 md:px-3 tracking-wider',
-        results.length ? 'rounded-b-none' : '',
+        results.length && showResults ? 'rounded-b-none' : '',
         className
     );
 
     return (
-        <div className="w-full flex flex-col items-center">
+        <div
+            className="w-full md:w-144 flex flex-col items-center mx-auto"
+            ref={searchAreaRef}
+            onClick={() => setShowResults(true)}
+        >
             <input
                 className={inputClassnames}
                 value={search}
                 onChange={(e) => setSearch(e.target.value)}
             />
-            {results.length > 0 && (
-                <div className="w-full md:w-144 h-96 bg-base-fg rounded-b-xl border-t border-black overflow-y-auto overflow-x-hidden divide-y-2 divide-black">
+            {results.length > 0 && showResults && (
+                <div className="h-96 bg-base-fg rounded-b-xl border-t border-black overflow-y-auto overflow-x-hidden divide-y-2 divide-black w-full">
                     {results.map((result, i) => {
                         const optionClassname = classnames(
                             'w-full relative overflow-hidden flex items-end overlfow-hidden',
