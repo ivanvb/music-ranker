@@ -5,7 +5,7 @@ import SongsPanel from './components/SongsPanel';
 import { TracksContext } from './context/TracksContext';
 
 function App() {
-    const [tracks] = useContext(TracksContext);
+    const [tracks, utils] = useContext(TracksContext);
     return (
         <main className="min-h-screen text-gray-100 container py-8 md:py-12 flex flex-col">
             <img
@@ -15,7 +15,7 @@ function App() {
             />
             <SearchBar />
             <div className="mt-6 grid grid-cols-2 gap-12 ">
-                <SongsPanel tracks={tracks} />
+                <SongsPanel tracks={tracks} deleteSong={utils.removeTrack} />
                 <SongsPanel
                     tracks={[...tracks].sort((a, b) => {
                         if (a.rank > b.rank) {

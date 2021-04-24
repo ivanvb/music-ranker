@@ -1,7 +1,7 @@
 import React from 'react';
 import * as Deezer from '../lib/deezer';
 
-const SongsPanel = ({ tracks, showRank }) => {
+const SongsPanel = ({ tracks, showRank, deleteSong }) => {
     return (
         <div className="custom-scrollbar bg-base-fg rounded-lg grid grid-cols-3 p-4 h-full w-full flex-1 overflow-y-auto max-h-144 gap-8">
             {tracks.map((track, i) => {
@@ -25,6 +25,14 @@ const SongsPanel = ({ tracks, showRank }) => {
                             <div className="z-40 h-6 w-6 rounded-full absolute left-0 top-0 bg-gradient-to-t from-primary to-purple-500 flex justify-center items-center text-center transform -translate-x-1/3 -translate-y-1/4 text-xs">
                                 {i + 1}
                             </div>
+                        )}
+                        {deleteSong && (
+                            <button
+                                className="z-40 h-6 w-6 rounded-full absolute right-0 top-0 bg-gradient-to-t from-primary to-purple-500 flex justify-center items-center text-center transform translate-x-1/3 -translate-y-1/4 text-xs"
+                                onClick={() => deleteSong(track)}
+                            >
+                                X
+                            </button>
                         )}
                     </div>
                 );
