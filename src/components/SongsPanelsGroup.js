@@ -12,8 +12,18 @@ const SongPanels = () => {
         <>
             <div className="px-2 block md:hidden">
                 <div className="mt-6 flex space-x-6">
-                    <button onClick={() => setShowRank(false)}>Songs</button>
-                    <button onClick={() => setShowRank(true)}>Ranked</button>
+                    <button
+                        onClick={() => setShowRank(false)}
+                        className={`${showRank ? 'text-white' : 'text-primary'}`}
+                    >
+                        Songs
+                    </button>
+                    <button
+                        className={`${showRank ? 'text-primary' : 'text-white'}`}
+                        onClick={() => setShowRank(true)}
+                    >
+                        Ranked
+                    </button>
                 </div>
                 <hr className="border-white border mt-1 mb-2" />
             </div>
