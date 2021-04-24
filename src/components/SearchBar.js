@@ -83,7 +83,7 @@ const SearchBar = ({ className = '' }) => {
             onClick={() => setShowResults(true)}
             onFocus={() => setShowResults(true)}
         >
-            <div className="flex relative">
+            <div className="flex relative w-full">
                 <input
                     className={inputClassnames}
                     value={search}
