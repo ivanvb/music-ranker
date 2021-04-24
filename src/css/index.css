@@ -1,0 +1,49 @@
+:root {
+    --circle-size: 125px;
+    --square-size: 125px;
+    --border-size: 25px;
+}
+
+@media (max-width: 478px) {
+    :root {
+        --circle-size: 75px;
+        --square-size: 75px;
+        --border-size: 17.5px;
+    }
+}
+
+.inner-circle {
+    height: var(--circle-size);
+    width: var(--circle-size);
+    border-width: var(--border-size);
+    z-index: -100;
+    border-radius: 100%;
+}
+
+.inner-square {
+    height: var(--square-size);
+    width: var(--square-size);
+    border-width: var(--border-size);
+    border-radius: 20px;
+}
+
+.circle.x,
+.square.x {
+    animation: x 0s ease-in-out infinite alternate;
+}
+
+.circle .y,
+.square .y {
+    animation: y 0s ease-in-out infinite alternate;
+}
+
+@keyframes x {
+    100% {
+        transform: translateX(calc(100vw - var(--circle-size)));
+    }
+}
+@keyframes y {
+    100% {
+        transform: translateY(calc(100vh - var(--circle-size)));
+    }
+}
