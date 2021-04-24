@@ -38,10 +38,6 @@ const SearchBar = ({ className = '' }) => {
         className
     );
 
-    const scrollbarClassnames = classnames(
-        'scrollbar-thin scrollbar-thumb-primary scrollbar-track-purple-300 scrollbar-thumb-rounded-full scrollbar-track-rounded-full'
-    );
-
     return (
         <div
             className={containerClassnames}
@@ -56,7 +52,7 @@ const SearchBar = ({ className = '' }) => {
             />
             {results.length > 0 && showResults && (
                 <div
-                    className={`absolute z-20 top-full h-96 bg-base-fg rounded-b-xl border-t border-black overflow-y-auto overflow-x-hidden divide-y-2 divide-black w-full ${scrollbarClassnames}`}
+                    className={`absolute z-20 top-full h-96 bg-base-fg rounded-b-xl border-t border-black overflow-y-auto overflow-x-hidden divide-y-2 divide-black w-full custom-scrollbar`}
                 >
                     {results.map((result, i) => {
                         const optionClassname = classnames(

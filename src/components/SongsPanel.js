@@ -3,7 +3,7 @@ import * as Deezer from '../lib/deezer';
 
 const SongsPanel = ({ tracks, showRank }) => {
     return (
-        <div className="bg-base-fg rounded-lg grid grid-cols-3 p-4 h-full w-full flex-1 overflow-y-auto max-h-144 gap-8">
+        <div className="custom-scrollbar bg-base-fg rounded-lg grid grid-cols-3 p-4 h-full w-full flex-1 overflow-y-auto max-h-144 gap-8">
             {tracks.map((track, i) => {
                 return (
                     <div

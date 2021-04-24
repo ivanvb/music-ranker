@@ -2,6 +2,10 @@
 @tailwind components;
 @tailwind utilities;
 
-body{
+body {
     @apply bg-base-bg;
+}
+
+.custom-scrollbar {
+    @apply scrollbar-thin scrollbar-thumb-primary scrollbar-track-purple-300 scrollbar-thumb-rounded-full scrollbar-track-rounded-full;
 }
