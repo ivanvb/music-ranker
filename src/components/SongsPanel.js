@@ -3,12 +3,12 @@ import * as Deezer from '../lib/deezer';
 
 const SongsPanel = ({ tracks, showRank, deleteSong }) => {
     return (
-        <div className="custom-scrollbar bg-base-fg rounded-lg grid grid-cols-3 p-4 h-full w-full flex-1 overflow-y-auto max-h-144 gap-8">
+        <div className="custom-scrollbar bg-base-fg rounded-lg grid grid-cols-2 md:grid-cols-3 p-4 w-full md:w-6/12 overflow-y-auto gap-4 md:gap-8 auto-rows-min max-h-144 xl:max-h-250">
             {tracks.map((track, i) => {
                 return (
                     <div
                         key={i}
-                        className="h-48 w-full bg-cover backdrop-filter backdrop-grayscale backdrop-blur-md backdrop-contrast-200 rounded-xl shadow relative z-0"
+                        className="h-48 w-full bg-cover backdrop-filter backdrop-grayscale backdrop-blur-md backdrop-contrast-200 rounded-xl shadow relative z-0 bg-center"
                         style={{
                             backgroundImage: `url("${Deezer.generateAlbumImage(
                                 track.md5_image,
@@ -17,7 +17,7 @@ const SongsPanel = ({ tracks, showRank, deleteSong }) => {
                         }}
                     >
                         <div className="absolute h-full w-full bg-gradient-to-t from-black via-black to-transparent z-0 pointer-events-none rounded-xl opacity-50"></div>
-                        <div className="z-10 relative h-full flex flex-col rounded-xl justify-end p-3">
+                        <div className="z-10 relative h-full flex flex-col rounded-xl justify-end p-2 md:p-3">
                             <p className="text-sm">{track.title}</p>
                             <p className="font-bold">{track.artist.name}</p>
                         </div>
