@@ -14,8 +14,20 @@ function App() {
                 className="h-16 mx-auto mb-2 md:mb-6 xl:mb-10"
             />
             <SearchBar />
-            <div className="mt-6 flex flex-col h-full flex-1">
+            <div className="mt-6 grid grid-cols-2 gap-12 ">
                 <SongsPanel tracks={tracks} />
+                <SongsPanel
+                    tracks={[...tracks].sort((a, b) => {
+                        if (a.rank > b.rank) {
+                            return -1;
+                        } else if (a.rank < b.rank) {
+                            return 1;
+                        } else {
+                            return 0;
+                        }
+                    })}
+                    showRank
+                />
             </div>
         </main>
     );
