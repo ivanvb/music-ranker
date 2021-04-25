@@ -23,6 +23,6 @@ In the following example I will be looking for the album _Tranquility Base Hotel
 
 ---
 
-## What was used
+## Built with
 
 As previously mentioned, the data obtained for this project is fetched from [Deezer's API](https://developers.deezer.com/api). The webapp itself is built with React and the styles have been done using TailwindCSS.
