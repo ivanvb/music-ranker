@@ -7,7 +7,7 @@ import { useMedia } from 'react-use';
 const SongPanels = () => {
     const [tracks, utils] = useContext(TracksContext);
     const [showRank, setShowRank] = useState(false);
-    const isSmall = useMedia('(max-width: 478px)');
+    const isSmall = useMedia('(max-width: 767px)');
 
     return (
         <>
