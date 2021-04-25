@@ -18,6 +18,9 @@ module.exports = {
                 144: '36rem',
                 200: '50rem',
                 250: '62.5rem',
+                '70vh': '70vh',
+                '75vh': '75vh',
+                '80vh': '80vh',
             },
             screens: {
                 '2xl': '1536px',
