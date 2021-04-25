@@ -1,9 +1,10 @@
 import React from 'react';
 import * as Deezer from '../lib/deezer';
 
-const SongsPanel = ({ tracks, showRank, deleteSong }) => {
+const SongsPanel = ({ tracks, showRank, deleteSong, NoDataComponent }) => {
     return (
-        <div className="custom-scrollbar bg-base-fg rounded-lg grid grid-cols-2 md:grid-cols-3 p-4 w-full md:w-6/12 overflow-y-auto gap-4 md:gap-8 auto-rows-min max-h-144 xl:max-h-250">
+        <div className="custom-scrollbar bg-base-fg rounded-lg grid grid-cols-2 md:grid-cols-3 p-4 w-full md:w-6/12 overflow-y-auto gap-4 md:gap-8 auto-rows-min max-h-144 xl:max-h-250 relative">
+            {tracks.length === 0 && <NoDataComponent />}
             {tracks.map((track, i) => {
                 return (
                     <div

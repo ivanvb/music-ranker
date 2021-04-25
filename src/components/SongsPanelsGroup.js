@@ -1,6 +1,7 @@
 import React, { useContext, useState } from 'react';
 import SongsPanel from './SongsPanel';
 import { TracksContext } from '../context/TracksContext';
+import { NoRanksComponent, NoTracksComponent } from '../components/placeholders/NoDataComponents';
 import { useMedia } from 'react-use';
 
 const SongPanels = () => {
@@ -13,8 +14,8 @@ const SongPanels = () => {
             <div className="px-2 block md:hidden">
                 <div className="mt-6 flex space-x-6">
                     <button
-                        onClick={() => setShowRank(false)}
                         className={`${showRank ? 'text-white' : 'text-primary'}`}
+                        onClick={() => setShowRank(false)}
                     >
                         Songs
                     </button>
@@ -29,7 +30,11 @@ const SongPanels = () => {
             </div>
             <div className="flex mt-2 md:mt-6 flex-1 items-stretch space-x-8">
                 {(!showRank || !isSmall) && (
-                    <SongsPanel tracks={tracks} deleteSong={utils.removeTrack} />
+                    <SongsPanel
+                        tracks={tracks}
+                        deleteSong={utils.removeTrack}
+                        NoDataComponent={NoTracksComponent}
+                    />
                 )}
                 {(showRank || !isSmall) && (
                     <SongsPanel
@@ -43,6 +48,7 @@ const SongPanels = () => {
                             }
                         })}
                         showRank
+                        NoDataComponent={NoRanksComponent}
                     />
                 )}
             </div>
