@@ -2,6 +2,7 @@ import React, { useState, useRef, useContext } from 'react';
 import { useDebounce, useClickAway } from 'react-use';
 import classnames from 'classnames';
 import { BiReset } from 'react-icons/bi';
+import { CgClose } from 'react-icons/cg';
 
 import { TracksContext } from '../context/TracksContext';
 import * as Deezer from '../lib/deezer';
@@ -55,17 +56,19 @@ const SearchBar = ({ className = '' }) => {
     const containerClassnames = classnames(
         'w-full md:w-144 flex flex-col items-center mx-auto rounded-x relative rounded-2xl search-container',
         'focus-within:ring focus-within:ring-primary-dark-500',
-        { 'has-content': results.length && showResults }
+        { 'rounded-b-none ring ring-primary-dark-500': results.length && showResults }
     );
 
     const inputClassnames = classnames(
         'w-full md:w-144 bg-base-fg text-gray-100 rounded-2xl py-1 md:py-2 px-4 md:px-4 tracking-wider rounded-r-none z-50',
         'focus:outline-none',
+        { 'rounded-b-none': results.length && showResults },
         className
     );
 
     const toggleButtonClassname = classnames(
-        'toggle-button bg-primary text-white rounded-2xl px-4 rounded-l-none z-50'
+        'toggle-button bg-primary text-white rounded-2xl px-4 rounded-l-none z-50',
+        { 'rounded-b-none': results.length && showResults }
     );
 
     async function searchAlbumTracks(id) {
@@ -78,19 +81,25 @@ const SearchBar = ({ className = '' }) => {
     }
 
     return (
-        <div
-            className={containerClassnames}
-            ref={searchAreaRef}
-            onClick={() => setShowResults(true)}
-            onFocus={() => setShowResults(true)}
-        >
+        <div className={containerClassnames} ref={searchAreaRef}>
             <div className="flex relative w-full">
                 <input
                     className={inputClassnames}
                     value={search}
                     placeholder={`Search for music`}
                     onChange={(e) => setSearch(e.target.value)}
+                    onClick={() => setShowResults(true)}
+                    onFocus={() => setShowResults(true)}
                 />
+                <button
+                    className="bg-base-fg z-50 px-3 md:px-0"
+                    title="Close search"
+                    onClick={() => {
+                        setShowResults(false);
+                    }}
+                >
+                    <CgClose color="white" size={24} />
+                </button>
                 <button
                     className="bg-base-fg z-50 px-3 hidden md:block"
                     onClick={utils.resetTracks}

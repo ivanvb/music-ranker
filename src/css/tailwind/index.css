@@ -10,12 +10,15 @@ body {
     @apply scrollbar-thin scrollbar-thumb-primary scrollbar-track-purple-300 scrollbar-thumb-rounded-full scrollbar-track-rounded-full;
 }
 
-.search-container.has-content:focus-within,
+/* .search-container.has-content:focus-within,
 .search-container.has-content:focus-within input,
 .search-container.has-content:focus-within .toggle-button {
     @apply rounded-b-none;
 }
 
-.search-container:not(:focus-within) .results {
-    display: none;
-}
+.search-container:focus-within .results,
+.search-container:focus,
+.results:focus-within,
+.results:focus {
+    display: block;
+} */
