@@ -12,7 +12,7 @@ body {
 
 .search-container:focus-within,
 .search-container:focus-within input,
-.search-container:focus-within button {
+.search-container:focus-within .toggle-button {
     @apply rounded-b-none;
 }
 

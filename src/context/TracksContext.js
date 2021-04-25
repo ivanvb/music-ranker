@@ -21,8 +21,14 @@ export const TracksProvider = (props) => {
         return !!tracks.find((t) => t.id === track.id);
     }
 
+    function resetTracks() {
+        setTracks([]);
+    }
+
     return (
-        <TracksContext.Provider value={[tracks, { addTrack, removeTrack, hasTrackBeenAdded }]}>
+        <TracksContext.Provider
+            value={[tracks, { addTrack, removeTrack, hasTrackBeenAdded, resetTracks }]}
+        >
             {props.children}
         </TracksContext.Provider>
     );

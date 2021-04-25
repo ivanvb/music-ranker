@@ -12,7 +12,7 @@ const SongPanels = () => {
     return (
         <>
             <div className="px-2 block md:hidden">
-                <div className="mt-6 flex space-x-6">
+                <div className="mt-6 flex space-x-6 w-full relative">
                     <button
                         className={`${showRank ? 'text-white' : 'text-primary'}`}
                         onClick={() => setShowRank(false)}
@@ -24,6 +24,9 @@ const SongPanels = () => {
                         onClick={() => setShowRank(true)}
                     >
                         Ranked
+                    </button>
+                    <button className="right-0 absolute" onClick={utils.resetTracks}>
+                        Reset
                     </button>
                 </div>
                 <hr className="border-white border mt-1 mb-2" />

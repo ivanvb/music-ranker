@@ -1,6 +1,8 @@
 import React, { useState, useRef, useContext } from 'react';
 import { useDebounce, useClickAway } from 'react-use';
 import classnames from 'classnames';
+import { GrPowerReset } from 'react-icons/gr';
+import { BiReset } from 'react-icons/bi';
 
 import { TracksContext } from '../context/TracksContext';
 import * as Deezer from '../lib/deezer';
@@ -63,7 +65,7 @@ const SearchBar = ({ className = '' }) => {
     );
 
     const toggleButtonClassname = classnames(
-        'bg-primary text-white rounded-2xl px-4 rounded-l-none z-50'
+        'toggle-button bg-primary text-white rounded-2xl px-4 rounded-l-none z-50'
     );
 
     async function searchAlbumTracks(id) {
@@ -89,6 +91,13 @@ const SearchBar = ({ className = '' }) => {
                     placeholder={`Search for music`}
                     onChange={(e) => setSearch(e.target.value)}
                 />
+                <button
+                    className="bg-base-fg z-50 px-3 hidden md:block"
+                    onClick={utils.resetTracks}
+                    title="Reset tracks"
+                >
+                    <BiReset color={'white'} size={24} />
+                </button>
                 <button
                     className={toggleButtonClassname}
                     onClick={() => setTrackMode((prev) => !prev)}
