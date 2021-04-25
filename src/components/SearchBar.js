@@ -52,19 +52,18 @@ const SearchBar = ({ className = '' }) => {
     });
 
     const containerClassnames = classnames(
-        'w-full md:w-144 flex flex-col items-center mx-auto rounded-x relative'
+        'w-full md:w-144 flex flex-col items-center mx-auto rounded-x relative rounded-2xl search-container',
+        'focus-within:ring focus-within:ring-primary-dark-500'
     );
 
     const inputClassnames = classnames(
-        'w-full md:w-144 bg-base-fg text-gray-100 rounded-2xl py-1 md:py-2 px-4 md:px-4 tracking-wider rounded-r-none',
-        'focus:outline-none focus:ring focus:ring-primary focus:ring-opacity-70',
-        results.length && showResults ? 'rounded-b-none' : '',
+        'w-full md:w-144 bg-base-fg text-gray-100 rounded-2xl py-1 md:py-2 px-4 md:px-4 tracking-wider rounded-r-none z-50',
+        'focus:outline-none',
         className
     );
 
     const toggleButtonClassname = classnames(
-        'bg-base-fg rounded-xl px-4 rounded-l-none',
-        results.length && showResults ? 'rounded-b-none' : ''
+        'bg-primary text-white rounded-2xl px-4 rounded-l-none z-50'
     );
 
     async function searchAlbumTracks(id) {
@@ -87,6 +86,7 @@ const SearchBar = ({ className = '' }) => {
                 <input
                     className={inputClassnames}
                     value={search}
+                    placeholder={`Search for music`}
                     onChange={(e) => setSearch(e.target.value)}
                 />
                 <button
@@ -97,11 +97,11 @@ const SearchBar = ({ className = '' }) => {
                 </button>
                 {results.length > 0 && showResults && (
                     <div
-                        className={`absolute z-20 top-full h-96 bg-base-fg rounded-b-xl border-t border-black overflow-y-auto overflow-x-hidden divide-y-2 divide-black w-full custom-scrollbar`}
+                        className={`results ring ring-primary-dark-500 absolute z-20 top-full h-96 bg-base-fg rounded-b-xl border-t border-black overflow-y-auto overflow-x-hidden divide-y-2 divide-black w-full custom-scrollbar`}
                     >
                         {results.map((result, i) => {
                             const optionClassname = classnames(
-                                'w-full relative overflow-hidden flex items-end overlfow-hidden focus:outline-none focus:bg-primary-dark',
+                                'w-full relative overflow-hidden flex items-end overlfow-hidden focus:outline-none focus:bg-primary-dark-900',
                                 i === 0 ? 'pb-2 h-22' : 'py-2 h-24',
                                 { 'bg-purple-700': utils.hasTrackBeenAdded(result) }
                             );

@@ -9,3 +9,13 @@ body {
 .custom-scrollbar {
     @apply scrollbar-thin scrollbar-thumb-primary scrollbar-track-purple-300 scrollbar-thumb-rounded-full scrollbar-track-rounded-full;
 }
+
+.search-container:focus-within,
+.search-container:focus-within input,
+.search-container:focus-within button {
+    @apply rounded-b-none;
+}
+
+.search-container:not(:focus-within) .results {
+    display: none;
+}

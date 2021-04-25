@@ -5,8 +5,10 @@ module.exports = {
             colors: {
                 'base-bg': '#121212',
                 'base-fg': '#1E1E1E',
+                'base-action': '#141414',
                 primary: '#651FFF',
-                'primary-dark': '#262035',
+                'primary-dark-500': '#4C1DB8',
+                'primary-dark-900': '#262035',
             },
             spacing: {
                 22: '5.5rem',
