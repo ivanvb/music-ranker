@@ -67,7 +67,7 @@ const SearchBar = ({ className = '' }) => {
     );
 
     const toggleButtonClassname = classnames(
-        'toggle-button bg-primary text-white rounded-2xl px-4 rounded-l-none z-50',
+        'toggle-button bg-primary text-white rounded-2xl px-4 rounded-l-none z-40 focus:z-50 focus:outline-none focus:ring ring-primary',
         { 'rounded-b-none': results.length && showResults }
     );
 
@@ -92,7 +92,7 @@ const SearchBar = ({ className = '' }) => {
                     onFocus={() => setShowResults(true)}
                 />
                 <button
-                    className="bg-base-fg z-50 px-3 md:px-0"
+                    className="bg-base-fg z-40 px-3 md:px-0 focus:z-50 focus:outline-none focus:ring ring-primary"
                     title="Close search"
                     onClick={() => {
                         setShowResults(false);
@@ -101,7 +101,7 @@ const SearchBar = ({ className = '' }) => {
                     <CgClose color="white" size={24} />
                 </button>
                 <button
-                    className="bg-base-fg z-50 px-3 hidden md:block"
+                    className="bg-base-fg z-40 px-3 hidden md:block focus:z-50 focus:outline-none focus:ring ring-primary"
                     onClick={utils.resetTracks}
                     title="Reset tracks"
                 >
