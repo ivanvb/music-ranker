@@ -1,70 +1,28 @@
-# Getting Started with Create React App
+# Music Ranker
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+![](./readme/music-ranker-logo.png)
 
-## Available Scripts
+Music Ranker is a small webapp I built using React in which you can input an arbitrary number of songs and they will be ranked based on popularity. Also, in case you'd like to use an album as an input you can do so as well and it will actually add every song of that album and rank them accordingly.
 
-In the project directory, you can run:
+You can see the final result [here](https://music-ranker.netlify.app/), but as this webapp is using [Deezer's API](https://developers.deezer.com/api) to obtain its data, it can stop working anytime, so take that into account.
 
-### `yarn start`
+## What problem does this solves?
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+When discovering new music sometimes the amount of songs to listen to can feel overwhelming, this webapp aims to solve this by letting you enter all these songs and giving you an idea of which one are the most popular, which does not neccessarily mean that they are the best ones among the group, but can be a good metric to take into consideration.
 
-The page will reload if you make edits.\
-You will also see any lint errors in the console.
 
-### `yarn test`
+![](./readme/music-ranker-demo.png)
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+## An Example
 
-### `yarn build`
+In the following example I will be looking for the album _Tranquility Base Hotel & Casino_ by Arctic Monkeys and after selecting it we can see how the webapp ranks all the songs in the album.
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+![](./readme/music-ranker-2.png)
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+![](./readme/music-ranker-3.png)
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+---
 
-### `yarn eject`
+## What was used
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
-
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
-
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `yarn build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+As previously mentioned, the data obtained for this project is fetched from [Deezer's API](https://developers.deezer.com/api). The webapp itself is built with React and the styles have been done using TailwindCSS.
