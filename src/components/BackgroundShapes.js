@@ -1,4 +1,6 @@
 import React from 'react';
+import Times from './svg/Times';
+import Square from './svg/Square';
 
 function getRandomArbitrary(min, max) {
     return Math.random() * (max - min) + min;
@@ -11,8 +13,14 @@ const BackgroundShape = () => {
     const minOpacity = 0.1,
         maxOpacity = 0.2;
 
-    const shapes = ['circle', 'square'];
+    const shapes = ['circle', 'square', 'times'];
     const selectedShape = shapes[Math.floor(getRandomArbitrary(0, shapes.length))];
+
+    const computedInnerStyles = {
+        animationDuration: `${getRandomArbitrary(minDuration, maxDuration)}s`,
+        animationDelay: `-${getRandomArbitrary(0, maxDuration)}s`,
+        opacity: `${getRandomArbitrary(minOpacity, maxOpacity)}`,
+    };
 
     return (
         <div
@@ -22,14 +30,14 @@ const BackgroundShape = () => {
                 animationDelay: `-${getRandomArbitrary(0, maxDuration)}s`,
             }}
         >
-            <div
-                className={`inner-${selectedShape} border-primary y`}
-                style={{
-                    animationDuration: `${getRandomArbitrary(minDuration, maxDuration)}s`,
-                    animationDelay: `-${getRandomArbitrary(0, maxDuration)}s`,
-                    opacity: `${getRandomArbitrary(minOpacity, maxOpacity)}`,
-                }}
-            ></div>
+            {selectedShape === 'circle' && (
+                <div
+                    className={`inner-${selectedShape} border-primary y`}
+                    style={computedInnerStyles}
+                ></div>
+            )}
+            {selectedShape === 'square' && <Square style={computedInnerStyles} />}
+            {selectedShape === 'times' && <Times style={computedInnerStyles} />}
         </div>
     );
 };

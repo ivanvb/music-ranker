@@ -23,17 +23,22 @@
 .inner-square {
     height: var(--square-size);
     width: var(--square-size);
-    border-width: var(--border-size);
-    border-radius: 20px;
+}
+
+.inner-times {
+    height: var(--square-size);
+    width: var(--square-size);
 }
 
 .circle.x,
-.square.x {
+.square.x,
+.times.x {
     animation: x 0s ease-in-out infinite alternate;
 }
 
 .circle .y,
-.square .y {
+.square .y,
+.times .y {
     animation: y 0s ease-in-out infinite alternate;
 }
 
