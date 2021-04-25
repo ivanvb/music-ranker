@@ -5,7 +5,11 @@ const Footer = () => {
     return (
         <footer className="container flex flex-col items-center">
             <hr className="border-gray-500 w-full" />
-            <a href="https://github.com/ivanvb/music-ranker" className="mx-auto inline-block">
+            <a
+                href="https://github.com/ivanvb/music-ranker"
+                className="mx-auto inline-block"
+                title="Project's repository"
+            >
                 <FaGithub
                     className="mt-6 mb-8 opacity-70 hover:opacity-90"
                     color="white"
