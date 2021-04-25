@@ -10,9 +10,9 @@ body {
     @apply scrollbar-thin scrollbar-thumb-primary scrollbar-track-purple-300 scrollbar-thumb-rounded-full scrollbar-track-rounded-full;
 }
 
-.search-container:focus-within,
-.search-container:focus-within input,
-.search-container:focus-within .toggle-button {
+.search-container.has-content:focus-within,
+.search-container.has-content:focus-within input,
+.search-container.has-content:focus-within .toggle-button {
     @apply rounded-b-none;
 }
 

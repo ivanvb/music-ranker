@@ -55,7 +55,8 @@ const SearchBar = ({ className = '' }) => {
 
     const containerClassnames = classnames(
         'w-full md:w-144 flex flex-col items-center mx-auto rounded-x relative rounded-2xl search-container',
-        'focus-within:ring focus-within:ring-primary-dark-500'
+        'focus-within:ring focus-within:ring-primary-dark-500',
+        { 'has-content': results.length && showResults }
     );
 
     const inputClassnames = classnames(
